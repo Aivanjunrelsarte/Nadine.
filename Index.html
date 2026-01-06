@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="ceb">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>💖 Happy Monthsary My Lab 💖</title>
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Dancing+Script:wght@600&display=swap" rel="stylesheet">
+
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: "Poppins", sans-serif;
+      background: url('Screenshot_20251102_224036 (1).jpg') no-repeat center center fixed;
+      background-size: cover;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+      position: relative;
+      cursor: pointer;
+    }
+
+    body::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: rgba(0,0,0,0.6);
+      z-index: -1;
+    }
+
+    /* LETTER FIXED + SCROLLABLE */
+    .letter {
+      background: rgba(255, 255, 255, 0.15);
+      padding: 30px;
+      border-radius: 25px;
+      width: 90%;
+      max-width: 450px;
+      height: 80vh;
+      text-align: center;
+      box-shadow: 0 8px 25px rgba(255, 192, 203, 0.4);
+      opacity: 0;
+      transform: scale(0.8);
+      transition: all 1s ease;
+      display: none;
+      backdrop-filter: blur(3px);
+      overflow-y: auto;
+      overflow-x: hidden;
+      scroll-behavior: smooth;
+    }
+
+    /* SCROLLBAR DESIGN */
+    .letter::-webkit-scrollbar {
+      width: 6px;
+    }
+    .letter::-webkit-scrollbar-thumb {
+      background: rgba(255,150,180,0.6);
+      border-radius: 10px;
+    }
+
+    h1 {
+      margin-bottom: 15px;
+      color: #ffcce0;
+      font-size: 32px;
+      font-family: 'Dancing Script', cursive;
+      font-weight: 600;
+      text-shadow: 0 0 15px #ff80b3, 0 0 30px #ff6699;
+      animation: glow 3s ease-in-out infinite alternate;
+    }
+
+    @keyframes glow {
+      from { text-shadow: 0 0 5px #ff6699; }
+      to { text-shadow: 0 0 25px #ff99cc; }
+    }
+
+    .typing {
+      font-size: 18px;
+      line-height: 1.8;
+      color: #fff;
+      text-align: left;
+      border-right: 2px solid #ffcccc;
+      white-space: pre-line;
+      overflow: hidden;
+      font-family: 'Dancing Script', cursive;
+    }
+
+    .image img {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 3px solid #fff;
+      box-shadow: 0 0 20px rgba(255,192,203,0.5);
+      animation: pulse 3s ease-in-out infinite;
+      margin-bottom: 20px;
+    }
+
+    @keyframes pulse {
+      0%,100% { transform: scale(1); }
+      50% { transform: scale(1.05); }
+    }
+
+    .love-you {
+      margin-top: 25px;
+      font-size: 28px;
+      color: #ff99cc;
+      font-family: 'Dancing Script', cursive;
+    }
+
+    .from {
+      font-size: 16px;
+      color: #ddd;
+      margin-top: 8px;
+      font-family: 'Dancing Script', cursive;
+      text-align: right;
+    }
+
+    .intro, .locked {
+      position: fixed;
+      inset: 0;
+      background: url('85667ee0-044c-487c-9307-02d47284922b.jpeg') no-repeat center center;
+      background-size: cover;
+      backdrop-filter: blur(4px);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      color: #fff;
+      font-size: 34px;
+      font-weight: bold;
+      z-index: 10;
+      text-align: center;
+      font-family: 'Dancing Script', cursive;
+      transition: opacity 0.5s ease;
+      text-shadow: 0 0 15px #ff99cc;
+    }
+
+    .intro span, .locked span {
+      font-size: 18px;
+      margin-top: 15px;
+      color: #ffe6f0;
+      font-family: 'Poppins', sans-serif;
+    }
+  </style>
+</head>
+
+<body onclick="openLetter()">
+
+  <div class="locked" id="locked">
+    ⏳ Not yet time 💌
+    <span>Come back on November 7, 7:57 PM 💖</span>
+  </div>
+
+  <div class="intro" id="intro" style="display:none;">
+    💌 Tap to Open 💌
+    <span>(Touch anywhere to open)</span>
+  </div>
+
+  <audio id="bg-music" loop>
+    <source src="lv_0_20260106214427.mp4">
+  </audio>
+
+  <div class="letter" id="letter">
+    <h1>My Dearest Nadine 💞</h1>
+
+    <div class="image">
+      <img src="profile.jpg">
+    </div>
+
+    <p class="typing" id="typing"></p>
+
+    <p class="love-you">I Love You Forever 💗</p>
+    <p class="from">from — Yours Lablab, Aivan 💋</p>
+  </div>
+
+  <script>
+    const unlockDate = new Date(" january  7, 2026 19:57:00").getTime();
+    const now = new Date().getTime();
+
+    if (now >= unlockDate) {
+      document.getElementById("locked").style.display = "none";
+      document.getElementById("intro").style.display = "flex";
+    } else {
+      document.getElementById("locked").style.display = "flex";
+    }
+
+    const message =
+`Mahal kong Nadine Raine Marcial,
+Happy 3rd Monthsary sa atin at Happy New Year 💫
+Hindi ko alam kung paano ko sisimulan, pero gusto kong malaman mo na sa loob ng tatlong buwan—mula sa mga half-week na kinikilig pa lang tayo, sa bawat buwan na unti-unti tayong nagiging seryoso—ikaw na yung naging pahinga ko, lakas ko, at tahanan ko kahit magkalayo tayo.
+LDR man tayo, ikaw pa rin yung boses na hinahanap ko kapag pagod ako, at ikaw yung pangalan na kusang lumalabas sa isip ko bago ako matulog. Sa bawat “mag-ingat ka,” “huwag kang mag-overtink,” at “kumain ka sa tamang oras,” ramdam ko kung gaano ka ka-sincere, kung gaano mo ako pinapahalagahan, at kung gaano mo talaga ako mahal bilang jowa mo.
+Alam kong may mga pagkakataon na hindi ko nasusunod lahat ng gusto mong gawin ko para sa sarili ko, at sorry kung nakaka-frustrate yun minsan. Pero sana alam mo—lahat ng ginagawa ko, ginagawa ko para sa atin, para sa pagmamahal natin, at para sa'yo. Minsan nagkakamali ako, minsan matigas ulo ako, pero kahit ganun, pinipili pa rin kitang mahalin at alagaan.
+Ngayong pagkakataon na ito, gusto kong ibalik sa’yo lahat ng inaalaga mo sa akin. Gusto kong ako naman ang magsabi sa’yo: mag-ingat ka palagi, huwag kang mag-overtink, at kumain ka sa tamang oras, kahit abala ka, kahit pagod ka, kahit hindi mo hinihingi. Kapag may mabigat na araw at tahimik ka lang, gusto kong malaman mo na nandito lang ako—handa kang pakinggan, intindihin, at damayan, kahit sa salita lang muna.
+Kung minsan mapagod ka, pangako na ako ang sasalo. Kung minsan makalimot ka sa sarili mo, ako ang magpapaalala. Gusto kong ipadama sa’yo na kahit malayo tayo, hindi ka nag-iisa. Na may jowa kang nagmamahal at nag-aalaga sa’yo nang buo, sa bawat araw at sa bawat sandali.
+Tatlong buwan pa lang tayo, pero damang-dama ko na parang simula pa lang ito ng mas mahabang kwento natin. Sa bagong taon na ito, isang pangako lang ang kaya kong ibigay: pipiliin pa rin kita, aalagaan pa rin kita, mamahalin pa rin kita, sa bawat monthsary, sa bawat ordinaryong araw, at sa bawat pagkakataon na makasama ka kahit sa pangarap lang muna.
+Mahal na mahal kita, Nadine. Mag-ingat ka palagi. Huwag kang mag-overtink. Kumain ka sa tamang oras. Nandito lang ako—jowa mo, para sa’yo, palagi. 🤍`;
+
+    function openLetter() {
+      if (new Date().getTime() < unlockDate) {
+        alert("⏳ Hindi pa time, Lablab! Wait till  December 7, 7:57 PM 💖");
+        return;
+      }
+
+      document.getElementById("intro").style.opacity = "0";
+      setTimeout(() => document.getElementById("intro").style.display = "none", 500);
+
+      document.getElementById("bg-music").play();
+
+      const letter = document.getElementById("letter");
+      letter.style.display = "block";
+      setTimeout(() => {
+        letter.style.opacity = "1";
+        letter.style.transform = "scale(1)";
+      }, 100);
+
+      setTimeout(typeWriter, 700);
+    }
+
+    let i = 0;
+    function typeWriter() {
+      if (i < message.length) {
+        document.getElementById("typing").textContent += message.charAt(i);
+        i++;
+        setTimeout(typeWriter, 40);
+      }
+    }
+  </script>
+</body>
+</html>
